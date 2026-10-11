@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ytdtool</AssemblyName>
+    <RootNamespace>YtdTool</RootNamespace>
+    <!-- Same as map_extract.csproj: CodeWalker.Core is Windows-only in practice. -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <!-- CodeWalker.Core from https://github.com/dexyfex/CodeWalker. The default
+       path is where it was checked out when this was built; anywhere else:
+       dotnet build -c Release -p:CodeWalkerCore=<path to CodeWalker.Core.csproj> -->
+  <PropertyGroup>
+    <CodeWalkerCore Condition="'$(CodeWalkerCore)' == ''">..\..\..\..\..\_tools\codewalker_src\CodeWalker.Core\CodeWalker.Core.csproj</CodeWalkerCore>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(CodeWalkerCore)" />
+  </ItemGroup>
+
+</Project>

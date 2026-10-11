@@ -1,0 +1,5 @@
+tools/source/
+tools/out/
+tools/ytdtool/bin/
+tools/ytdtool/obj/
+__pycache__/
